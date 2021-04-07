@@ -1,0 +1,25 @@
+﻿@model WebAppCoreData.Task
+
+<h2>New task</h2>
+
+<form method="post">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Name:")
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <div class="form-group" style="display: inline-flex;">
+        @Html.LabelFor(model => model.Name, "Task type:")
+        @Html.DropDownList("TaskType",
+            Html.GetEnumSelectList<WebAppCoreData.TaskType>(),
+            "Select type", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "From:")
+        @Html.EditorFor(model => model.From)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "To:")
+        @Html.EditorFor(model => model.To)
+    </div>
+    <input type="submit" value="Create" />
+</form>

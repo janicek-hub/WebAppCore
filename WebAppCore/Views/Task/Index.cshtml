@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebAppCoreData.Task>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<h2>Tasks</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TaskType)*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TaskTypeSortParm"]">@Html.DisplayNameFor(model => model.TaskType)</a>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.From)*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["FromSortParm"]">@Html.DisplayNameFor(model => model.From)</a>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.To)*@
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ToSortParm"]">@Html.DisplayNameFor(model => model.To)</a>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" onclick="return confirm('Are you sure you want to delete?');" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

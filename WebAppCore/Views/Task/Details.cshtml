@@ -1,0 +1,22 @@
+﻿@model WebAppCoreData.Task
+
+<h2>Details of task - @Model.Name</h2>
+
+<form method="Get">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Name:")
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Task type:")
+        @Html.DisplayFor(model => model.TaskType)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "From:")
+        @Html.DisplayFor(model => model.From)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "To:")
+        @Html.DisplayFor(model => model.To)
+    </div>
+</form>
